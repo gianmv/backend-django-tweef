@@ -129,6 +129,6 @@ dmypy.json
 .pyre/
 
 #Project specific migrations
-/db
+.db/data
 migrations/
 .idea/
