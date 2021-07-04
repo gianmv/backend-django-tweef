@@ -9,6 +9,8 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: tabaxco
+    ports:
+      - 27017:27017
     volumes:
         - ./data:/data/db
 
@@ -20,3 +22,4 @@ services:
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: tabaxco
+      ME_CONFIG_MONGODB_SERVER: mongo
