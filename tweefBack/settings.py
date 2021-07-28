@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-import mongoengine
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -31,11 +30,11 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.auth',  # Core authentication framework and its default models
     'tweef_app'
 ]
 
@@ -74,19 +73,25 @@ WSGI_APPLICATION = 'tweefBack.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'db.sqlite3'
+        'ENGINE': 'djongo',
+        'NAME': 'tweef_db',
+        'CLIENT': {
+            'host': 'localhost',
+            'port': 27017,
+            'username': 'root',
+            'password': 'tabaxco'
+        }
     },
 }
 
 # Mongo db configuration
-MONGO_USER = 'root'
+"""MONGO_USER = 'root'
 MONGO_PASS = 'tabaxco'
 MONGO_HOST = 'localhost'
 MONGO_NAME = 'tweef_db'
 MONGO_DATABASE_HOST = 'mongodb://{}:{}@{}/{}'.format(MONGO_USER, MONGO_PASS, MONGO_HOST, MONGO_NAME)
 mongoengine.connect(MONGO_NAME, host=MONGO_DATABASE_HOST)
-
+"""
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
