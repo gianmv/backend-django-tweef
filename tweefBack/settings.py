@@ -33,9 +33,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.staticfiles'
     'django.contrib.auth',  # Core authentication framework and its default models
-    'tweef_app'
+    'tweef_app',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
